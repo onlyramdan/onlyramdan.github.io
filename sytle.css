@@ -1,6 +1,9 @@
+body {
+  background: linear-gradient(to bottom, #0b253d, #f2f2f2);
+}
+
 .jumbotron {
   padding-top: 6rem;
-  padding-bottom: 6rem;
 }
 #project {
   padding-top: 2rem;
