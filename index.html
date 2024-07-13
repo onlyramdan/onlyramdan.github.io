@@ -6,10 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
-    <!-- Boostraps Icon -->
+    <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" />
-    <!-- My CSS-->
-    <link rel="stylesheet" href="sytle.css" />
+    <!-- My CSS -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- AOS CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
     <link rel="icon" type="image/x-icon" href="/img/project/favicon.ico" />
     <title>Ramdan</title>
   </head>
@@ -22,7 +24,6 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <!-- navigasi -->
           <div class="navbar-nav ms-auto">
             <a class="nav-link active" aria-current="page" href="#home">About Me</a>
             <a class="nav-link" href="#project">Project</a>
@@ -31,17 +32,17 @@
         </div>
       </div>
     </nav>
-    <!-- Akir Navbar -->
+    <!-- Akhir Navbar -->
     <!-- Jumbotron -->
-    <section class="jumbotron text-center">
+    <section class="jumbotron text-center" data-aos="fade-up">
       <div class="container">
         <div class="row mt-4 mb-1">
           <div class="col">
             <div>
               <h2 style="text-align: left; color: white">👨‍💻 About Me</h2>
               <p style="color: white; text-align: justify">
-                Seorang lulusan Teknik Rekayasa Komputer yang memiliki keahlian mendalam di bidang Website Development, dan Internet of Thing. Ahli dalam bahasa pemrograman Go, Ruby, PHP, JavaScript, C#,dan Python. Selain itu, memiliki
-                pengalaman menggunakan framework seperti Laravel, CodeIgneter, Gin, .Net, dan Ruby on Rails, juga berpengalaman menggunakan MySQL, PostgreSQL, dan MangoDB untuk manajamen data. Terampil dalam komunikasi, kerja sama, dan
+                Seorang lulusan Teknik Rekayasa Komputer yang memiliki keahlian mendalam di bidang Website Development, dan Internet of Thing. Ahli dalam bahasa pemrograman Go, Ruby, PHP, JavaScript, C#, dan Python. Selain itu, memiliki
+                pengalaman menggunakan framework seperti Laravel, CodeIgniter, Gin, .Net, dan Ruby on Rails, juga berpengalaman menggunakan MySQL, PostgreSQL, dan MangoDB untuk manajemen data. Terampil dalam komunikasi, kerja sama, dan
                 manajemen waktu. Berkomitmen untuk terus belajar demi meningkatkan kemampuan diri serta dapat berkontribusi bagi kemajuan perusahaan.
               </p>
             </div>
@@ -53,54 +54,54 @@
     <!-- Project -->
     <section id="project">
       <div class="container">
-        <div class="row text-center mt-4 mb-1">
+        <div class="row text-center mt-4 mb-1" data-aos="fade-up">
           <div class="col">
             <h2 style="text-align: left; color: white">💻 Project</h2>
           </div>
         </div>
         <div class="row justify-content-center">
-          <div class="col-md-4 mb-3">
+          <div class="col-md-4 mb-3" data-aos="zoom-in">
             <div class="card h-100">
               <img src="img/project/lsp.png" style="max-height: 200px; height: 100%" class="card-img-top" alt="..." />
               <div class="card-body">
                 <h5 class="card-title">Web LSP HCMI</h5>
-                <p class="card-text">Merupakan sebuah website company profile dari LSP HCMI dari Forum Human Capital Indonesia yang bergerak dibidang sertifikasi bagian sumber daya manusia (HC).</p>
+                <p class="card-text">Merupakan sebuah website company profile dari LSP HCMI dari Forum Human Capital Indonesia yang bergerak di bidang sertifikasi bagian sumber daya manusia (HC).</p>
               </div>
             </div>
           </div>
-          <div class="col-md-4 mb-3">
+          <div class="col-md-4 mb-3" data-aos="zoom-in">
             <div class="card h-100">
               <img src="img/project/arsip.png" style="max-height: 200px; height: 100%" class="card-img-top" alt="..." />
               <div class="card-body">
                 <h5 class="card-title">Web Arsip LSP HCMI</h5>
                 <p class="card-text">
-                  Merupakan sebuah website arsip dari LSP HCMI dari Forum Human Capital Indonesia yang bergerak dibidang sertifikasi bagian sumber daya manusia (HC) dimana website menangani berbagai arsip yang berkaitan dengan sertifikasi
+                  Merupakan sebuah website arsip dari LSP HCMI dari Forum Human Capital Indonesia yang bergerak di bidang sertifikasi bagian sumber daya manusia (HC) dimana website menangani berbagai arsip yang berkaitan dengan sertifikasi
                   di LSP.
                 </p>
               </div>
             </div>
           </div>
-          <div class="col-md-4 mb-3">
+          <div class="col-md-4 mb-3" data-aos="zoom-in">
             <div class="card h-100">
               <img src="img/project/monitoring lingkungan.png" style="max-height: 200px; height: 100%" class="card-img-top" alt="..." />
               <div class="card-body">
                 <h5 class="card-title">IoT Monitoring Lingkungan</h5>
                 <p class="card-text">
-                  Merupakan sistem yang memonitoring lingkungan diperpustakaan IPB University dengan idikator suhu,kelembapan, dan CO2 menggunakkan komunikasi MQTT. Sistem ini berfungsi menjaga kenyamanan pengunjung dan staf
+                  Merupakan sistem yang memonitoring lingkungan di perpustakaan IPB University dengan indikator suhu, kelembapan, dan CO2 menggunakan komunikasi MQTT. Sistem ini berfungsi menjaga kenyamanan pengunjung dan staf.
                 </p>
               </div>
             </div>
           </div>
-          <div class="col-md-4 mb-3">
+          <div class="col-md-4 mb-3" data-aos="zoom-in">
             <div class="card h-100">
               <img src="img/project/more.png" style="max-height: 200px; height: 100%" class="card-img-top" alt="..." />
               <div class="card-body">
                 <h5 class="card-title">Website More MUM</h5>
-                <p class="card-text">Pembuatan Website Lowongan kerja di PT PNM Group yang merupakan website milik PT Mitra Utama Madani</p>
+                <p class="card-text">Pembuatan Website Lowongan kerja di PT PNM Group yang merupakan website milik PT Mitra Utama Madani.</p>
               </div>
             </div>
           </div>
-          <div class="col-md-4 mb-3">
+          <div class="col-md-4 mb-3" data-aos="zoom-in">
             <div class="card h-100">
               <img src="img/project/legalin.png" style="max-height: 200px; height: 100%" class="card-img-top" alt="..." />
               <div class="card-body">
@@ -109,54 +110,54 @@
               </div>
             </div>
           </div>
-          <div class="col-md-4 mb-3">
+          <div class="col-md-4 mb-3" data-aos="zoom-in">
             <div class="card h-100">
               <img src="img/project/pakan-puyuh.png" style="max-height: 200px; height: 100%" class="card-img-top" alt="..." />
               <div class="card-body">
                 <h5 class="card-title">Pakan Otomatis di Tazkia Farm</h5>
                 <p class="card-text">
-                  Project ini bertujuan membuat sebuah pakan otomatis untuk burung puyuh penghsil telur agar sesuai dengan takarannya . Dalam project ini menggunakkan mikrokontroller arduino dan sensor loadcell hx711 untuk mengatur berat
+                  Project ini bertujuan membuat sebuah pakan otomatis untuk burung puyuh penghasil telur agar sesuai dengan takarannya. Dalam project ini menggunakan mikrokontroler arduino dan sensor loadcell hx711 untuk mengatur berat
                   pakan yang akan dikeluarkan.
                 </p>
               </div>
             </div>
           </div>
-          <div class="col-md-4 mb-3">
+          <div class="col-md-4 mb-3" data-aos="zoom-in">
             <div class="card h-100">
               <img src="img/project/iot-afish.png" style="max-height: 200px; height: 100%" class="card-img-top" alt="..." />
               <div class="card-body">
                 <h5 class="card-title">IoT aFEESH</h5>
                 <p class="card-text">
-                  Project ini membuat sebuah pakan otomatis dengan menggunnakkan sistem serta berbasis Web dimana pakan akan keluar otomatis ketika pakan waktunya sudah tepat sama seperti yang di setting di pada website dan juga berdasarkan
-                  kulitas air kolam lele.
+                  Project ini membuat sebuah pakan otomatis dengan menggunakan sistem serta berbasis Web dimana pakan akan keluar otomatis ketika pakan waktunya sudah tepat sama seperti yang di setting di pada website dan juga berdasarkan
+                  kualitas air kolam lele.
                 </p>
               </div>
             </div>
           </div>
-          <div class="col-md-4 mb-3">
+          <div class="col-md-4 mb-3" data-aos="zoom-in">
             <div class="card h-100">
               <img src="img/project/ulam.jpeg" style="max-height: 200px; height: 100%" class="card-img-top" alt="..." />
               <div class="card-body">
                 <h5 class="card-title">Angsuran VA ULLAM</h5>
                 <p class="card-text">
-                  Merupakan Website untuk memonitoring pembayaran via alfarmart dan indomart dari nasabah ULLAM baik dari MMS maupun channel dari Jatelindo dimana monitoring ini dapat dilakukan secara perhari, perbulan, dan pertahun.
+                  Merupakan Website untuk memonitoring pembayaran via alfamart dan indomart dari nasabah ULLAM baik dari MMS maupun channel dari Jatelindo dimana monitoring ini dapat dilakukan secara perhari, perbulan, dan pertahun.
                 </p>
               </div>
             </div>
           </div>
-          <div class="col-md-4 mb-3">
+          <div class="col-md-4 mb-3" data-aos="zoom-in">
             <div class="card h-100">
               <img src="img/project/WhatsApp Image 2022-02-05 at 00.57.22.jpeg" style="max-height: 200px; height: 100%" class="card-img-top" alt="..." />
               <div class="card-body">
                 <h5 class="card-title">Youth Planner</h5>
                 <p class="card-text">
-                  Acara youth planner ini di adakan oleh SCH(Sukabumi Creative Hub). Dalam acara ini saya dan tim mendapatkan pelatihan tentang dunia startup dan pembuatan aplikasi. Saya dan tim membuat presentasi picthdeck tentang aplikasi
-                  untuk inovasi di sukabumi yang di presentasikan langsung di depan Wali Kota Sukabumi
+                  Acara youth planner ini di adakan oleh SCH (Sukabumi Creative Hub). Dalam acara ini saya dan tim mendapatkan pelatihan tentang dunia startup dan pembuatan aplikasi. Saya dan tim membuat presentasi pitchdeck tentang
+                  aplikasi untuk inovasi di Sukabumi yang di presentasikan langsung di depan Wali Kota Sukabumi.
                 </p>
               </div>
             </div>
           </div>
-          <div class="col-md-4 mb-3">
+          <div class="col-md-4 mb-3" data-aos="zoom-in">
             <div class="card h-100">
               <img src="img/project/6f70cb63-36f4-4c6e-b6f2-db5a7e25f2d0.jpg" style="max-height: 200px; height: 100%" class="card-img-top" alt="..." />
               <div class="card-body">
@@ -165,14 +166,14 @@
               </div>
             </div>
           </div>
-          <div class="col-md-4 mb-3">
+          <div class="col-md-4 mb-3" data-aos="zoom-in">
             <div class="card h-100">
               <img src="img/project/WhatsApp Image 2022-02-05 at 01.07.23.jpeg" style="max-height: 200px; height: 100%" class="card-img-top" alt="..." />
               <div class="card-body">
                 <h5 class="card-title">Sobat Bumi UGM 2021</h5>
                 <p class="card-text">
-                  Sobat Bumi ini adalah acara yang diadakan oleh Universitas Gajah Mada dimana untuk memberikan sosialisai tentang pengelolaan sampah dan kebersihan lingkungan. Dalam atau acara ini saya berperan sebagai desainer feeds
-                  intagram dari sobat bumi.
+                  Sobat Bumi ini adalah acara yang diadakan oleh Universitas Gajah Mada dimana untuk memberikan sosialisasi tentang pengelolaan sampah dan kebersihan lingkungan. Dalam acara ini saya berperan sebagai desainer feeds instagram
+                  dari sobat bumi.
                 </p>
               </div>
             </div>
@@ -195,5 +196,9 @@
     </footer>
     <!-- Akhir Footer -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
   </body>
 </html>
