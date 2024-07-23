@@ -1,204 +1,621 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" />
-    <!-- My CSS -->
-    <link rel="stylesheet" href="style.css" />
-    <!-- AOS CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-    <link rel="icon" type="image/x-icon" href="/img/project/favicon.ico" />
-    <title>Ramdan</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ramdan's Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" />
+
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #e9f0f5;
+        color: #333;
+      }
+
+      header {
+        background-color: #007acc;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      header h1 {
+        margin: 0;
+        font-size: 2.5em;
+      }
+
+      header nav {
+        margin-top: 10px;
+      }
+
+      header nav a {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 15px;
+        font-size: 1.1em;
+        transition: color 0.3s ease;
+      }
+
+      header nav a:hover {
+        color: #ffdd57;
+      }
+
+      section {
+        padding: 40px 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .about,
+      .skills,
+      .projects,
+      .contact {
+        text-align: center;
+      }
+
+      .about h2,
+      .skills h2,
+      .projects h2,
+      .contact h2 {
+        font-size: 2.5em;
+        margin-bottom: 15px;
+      }
+
+      .about p,
+      .skills p,
+      .projects p,
+      .contact p {
+        font-size: 1.2em;
+        line-height: 1.6;
+      }
+
+      .skills ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .skills ul li {
+        display: inline-block;
+        margin: 10px;
+        font-size: 1.1em;
+        background-color: #3498db;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 20px;
+        transition: background-color 0.3s ease;
+      }
+
+      .skills ul li:hover {
+        background-color: #2980b9;
+      }
+
+      .skills ul li img {
+        width: 24px;
+        height: 24px;
+        vertical-align: middle;
+        margin-right: 8px;
+      }
+
+      .project-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+      }
+
+      .project-item {
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+        height: 580px; /* Fixed height for consistency */
+      }
+
+      .project-item:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .project-item img {
+        width: 100%;
+        height: 200px; /* Ensure image has a fixed height */
+        object-fit: cover;
+      }
+
+      .project-content {
+        padding: 15px;
+        flex-grow: 1;
+      }
+
+      .project-content h3 {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+      }
+
+      .project-content p {
+        font-size: 1em;
+        line-height: 1.4;
+        margin-bottom: 15px;
+      }
+
+      .project-links {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        padding: 10px;
+        background-color: #f9f9f9;
+        border-top: 1px solid #ddd;
+      }
+
+      .project-links a {
+        background-color: #3498db;
+        color: #fff;
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 20px;
+        font-size: 1.1em;
+        display: inline-block;
+        transition: background-color 0.3s ease;
+      }
+
+      .project-links a:hover {
+        background-color: #2980b9;
+      }
+
+      .contact-form {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 1em;
+      }
+
+      .contact-form button {
+        background-color: #007acc;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1.1em;
+        transition: background-color 0.3s ease;
+      }
+
+      .contact-form button:hover {
+        background-color: #005fa3;
+      }
+
+      /* Media Queries for Responsiveness */
+      @media (max-width: 768px) {
+        .project-item {
+          width: 100%;
+          height: auto;
+        }
+      }
+      /* Container for the timeline */
+      .timeline {
+        position: relative;
+        max-width: 880px; /* Limit the width of the timeline */
+        margin: 0 auto; /* Center the timeline container */
+        padding: 0 20px; /* Add padding to prevent content from touching edges */
+      }
+
+      /* Timeline container */
+      .experience-list {
+        position: relative;
+        padding: 0;
+        margin: 0;
+      }
+
+      /* Vertical line on the left */
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 20px; /* Position the line away from the left edge */
+        top: 0;
+        height: 100%;
+        width: 4px;
+        background-color: #3498db; /* Color of the vertical line */
+      }
+
+      /* Timeline items */
+      .experience-item {
+        position: relative;
+        padding: 20px 20px; /* Add padding to the top, bottom, and sides */
+        border-radius: 8px;
+        background-color: #fff;
+        margin-left: 40px; /* Move items to the right to make space for the line */
+        margin-bottom: 20px; /* Add space between items */
+      }
+
+      /* Timeline dot */
+      .experience-item::before {
+        content: "";
+        position: absolute;
+        left: -10px; /* Position the dot to the left of the item */
+        width: 16px;
+        height: 16px;
+        background-color: #3498db; /* Color of the timeline dot */
+        border-radius: 50%;
+        top: 20px; /* Position the dot at the top of the item */
+        border: 4px solid #fff; /* Optional: Add a border around the dot */
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Footer Styles */
+      .footer {
+        background-color: #3498db;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .footer-content h3 {
+        margin-bottom: 10px;
+      }
+
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .social-links a {
+        color: #fff;
+        display: flex;
+        align-items: center;
+      }
+
+      .social-links img {
+        width: 24px;
+        height: 24px;
+        transition: transform 0.3s;
+      }
+
+      .social-links img:hover {
+        transform: scale(1.1);
+      }
+
+      .social-links a:hover {
+        text-decoration: none;
+      }
+    </style>
   </head>
-  <body id="home">
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light shadow-sm fixed-top" style="background-color: white">
-      <div class="container">
-        <a class="navbar-brand" href="#home">Ramdan 🚀</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav ms-auto">
-            <a class="nav-link active" aria-current="page" href="#home">About Me</a>
-            <a class="nav-link" href="#project">Project</a>
-            <!-- <a class="nav-link" href="#contact">Contact</a> -->
+  <body>
+    <header data-aos="fade-up">
+      <h1>Ramdan's Portfolio 👋</h1>
+      <nav>
+        <a href="#about">About Me</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+    <section id="about" class="about" data-aos="fade-up">
+      <h2>About Me</h2>
+      <p>
+        Seorang lulusan Teknik Rekayasa Komputer yang memiliki keahlian mendalam di bidang Website Development, dan Internet of Things. Ahli dalam bahasa pemrograman Go, Ruby, PHP, JavaScript, C#, dan Python. Selain itu, memiliki pengalaman
+        menggunakan framework seperti Laravel, CodeIgniter, Gin, .Net, dan Ruby on Rails, juga berpengalaman menggunakan MySQL, PostgreSQL, dan MongoDB untuk manajemen data. Terampil dalam komunikasi, kerja sama, dan manajemen waktu.
+        Berkomitmen untuk terus belajar demi meningkatkan kemampuan diri serta dapat berkontribusi bagi kemajuan perusahaan.
+      </p>
+    </section>
+
+    <section id="skills" class="skills" data-aos="fade-up">
+      <h2>Skills</h2>
+      <ul>
+        <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg" alt="Go" />Go</li>
+        <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ruby/ruby-original.svg" alt="Ruby" />Ruby</li>
+        <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" />PHP</li>
+        <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" />JavaScript</li>
+        <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" />C#</li>
+        <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" />Python</li>
+        <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" />MySQL</li>
+        <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" />PostgreSQL</li>
+        <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" />MongoDB</li>
+      </ul>
+    </section>
+
+    <section id="experience" class="experience" data-aos="fade-up">
+      <h2>Experience</h2>
+      <div class="timeline">
+        <div class="timeline-line"></div>
+        <!-- Garis vertikal timeline -->
+        <div class="experience-list">
+          <!-- Daftar item pengalaman -->
+          <div class="experience-item" data-aos="fade-up">
+            <div class="experience-content">
+              <span class="experience-year">Feb 2024 - May 2024</span>
+              <h3>Web Developer Intern</h3>
+              <p>Forum Human Capital Indonesia - Jakarta, Indonesia</p>
+              <ul>
+                <li>Menambahkan modul sesuai dengan permintaan tim internal pada website arsip LSP HCMI menggunakan CodeIgniter.</li>
+                <li>Membuat format template tugas dalam format Word pada website LSP HCMI.</li>
+                <li>Mengelola website lsp.hcmi.com, termasuk melakukan perbaikan, menambahkan fitur, dan melakukan pembaruan secara berkala.</li>
+              </ul>
+            </div>
           </div>
-        </div>
-      </div>
-    </nav>
-    <!-- Akhir Navbar -->
-    <!-- Jumbotron -->
-    <section class="jumbotron text-center" data-aos="fade-up">
-      <div class="container">
-        <div class="row mt-4 mb-1">
-          <div class="col">
-            <div>
-              <h2 style="text-align: left; color: white">👨‍💻 About Me</h2>
-              <p style="color: white; text-align: justify">
-                Seorang lulusan Teknik Rekayasa Komputer yang memiliki keahlian mendalam di bidang Website Development, dan Internet of Thing. Ahli dalam bahasa pemrograman Go, Ruby, PHP, JavaScript, C#, dan Python. Selain itu, memiliki
-                pengalaman menggunakan framework seperti Laravel, CodeIgniter, Gin, .Net, dan Ruby on Rails, juga berpengalaman menggunakan MySQL, PostgreSQL, dan MangoDB untuk manajemen data. Terampil dalam komunikasi, kerja sama, dan
-                manajemen waktu. Berkomitmen untuk terus belajar demi meningkatkan kemampuan diri serta dapat berkontribusi bagi kemajuan perusahaan.
-              </p>
+          <div class="experience-item" data-aos="fade-up">
+            <div class="experience-content">
+              <span class="experience-year">Aug 2023 – Dec 2023</span>
+              <h3>Web Developer Intern</h3>
+              <p>PT Mintra Tekon Madani (PNM Group) - Jakarta Selatan, Indonesia</p>
+              <ul>
+                <li>Membuat Website VA ULAMM untuk monitoring 10.000+ transaksi pembayaran harian melalui Indomaret dan Alfamart baik dari transaksi Channel maupun transaksi MMS.</li>
+                <li>Meningkatkan efisiensi proses rekrutmen karyawan, dengan memperbaiki website MORE MUM termasuk menambahkan fitur, memperbaiki error serta meningkatkan kecepatan akses.</li>
+                <li>Membantu tim IT dengan total 20+ staff untuk mengembangkan API yang digunakan oleh Backend dan Frontend.</li>
+                <li>Penggunaan Ruby on Rails, serta MySQL, MongoDB sebagai database dalam menyelesaikan seluruh project.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="experience-item" data-aos="fade-up">
+            <div class="experience-content">
+              <span class="experience-year">Dec 2022 - Dec 2023</span>
+              <h3>IT Support</h3>
+              <p>Yayasan Bina Sejahtera - Bogor, Indonesia</p>
+              <ul>
+                <li>Berhasil memperbaiki dan mengoptimalkan laboratorium komputer yang dilengkapi dengan lebih dari 40 komputer.</li>
+                <li>Melakukan pemeliharaan fasilitas Komputer Lab, termasuk pembaruan sistem, penggantian hardware yang rusak, dan instalasi perangkat lunak yang diperlukan.</li>
+                <li>Memberikan kontribusi dalam merancang desain yang dibutuhkan oleh Yayasan.</li>
+              </ul>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <!-- Akhir Jumbotron -->
-    <!-- Project -->
-    <section id="project">
-      <div class="container">
-        <div class="row text-center mt-4 mb-1" data-aos="fade-up">
-          <div class="col">
-            <h2 style="text-align: left; color: white">💻 Project</h2>
+
+    <section id="projects" class="projects" data-aos="fade-up">
+      <h2>Projects</h2>
+      <div class="project-list">
+        <div class="project-item" data-aos="zoom-in">
+          <img src="img/project/lsp.png" alt="Web LSP HCMI" />
+          <div class="project-content">
+            <h3>Web LSP HCMI</h3>
+            <p>Merupakan sebuah website company profile dari LSP HCMI dari Forum Human Capital Indonesia yang bergerak di bidang sertifikasi bagian sumber daya manusia (HC).</p>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/yourusername/lsp" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://lsphcmi.com" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
           </div>
         </div>
-        <div class="row justify-content-center">
-          <div class="col-md-4 mb-3" data-aos="zoom-in">
-            <div class="card h-100">
-              <img src="img/project/lsp.png" style="max-height: 200px; height: 100%" class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">Web LSP HCMI</h5>
-                <p class="card-text">Merupakan sebuah website company profile dari LSP HCMI dari Forum Human Capital Indonesia yang bergerak di bidang sertifikasi bagian sumber daya manusia (HC).</p>
-              </div>
-            </div>
+        <div class="project-item" data-aos="zoom-in">
+          <img src="img/project/arsip.png" alt="Web Arsip LSP HCMI" />
+          <div class="project-content">
+            <h3>Web Arsip LSP HCMI</h3>
+            <p>
+              Merupakan sebuah website arsip dari LSP HCMI dari Forum Human Capital Indonesia yang bergerak di bidang sertifikasi bagian sumber daya manusia (HC) dimana website menangani berbagai arsip yang berkaitan dengan sertifikasi di
+              LSP.
+            </p>
           </div>
-          <div class="col-md-4 mb-3" data-aos="zoom-in">
-            <div class="card h-100">
-              <img src="img/project/arsip.png" style="max-height: 200px; height: 100%" class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">Web Arsip LSP HCMI</h5>
-                <p class="card-text">
-                  Merupakan sebuah website arsip dari LSP HCMI dari Forum Human Capital Indonesia yang bergerak di bidang sertifikasi bagian sumber daya manusia (HC) dimana website menangani berbagai arsip yang berkaitan dengan sertifikasi
-                  di LSP.
-                </p>
-              </div>
-            </div>
+          <div class="project-links">
+            <a href="https://github.com/yourusername/arsip" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://arsip.lsphcmi.com" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
           </div>
-          <div class="col-md-4 mb-3" data-aos="zoom-in">
-            <div class="card h-100">
-              <img src="img/project/monitoring lingkungan.png" style="max-height: 200px; height: 100%" class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">IoT Monitoring Lingkungan</h5>
-                <p class="card-text">
-                  Merupakan sistem yang memonitoring lingkungan di perpustakaan IPB University dengan indikator suhu, kelembapan, dan CO2 menggunakan komunikasi MQTT. Sistem ini berfungsi menjaga kenyamanan pengunjung dan staf.
-                </p>
-              </div>
-            </div>
+        </div>
+        <div class="project-item" data-aos="zoom-in">
+          <img src="img/project/monitoring lingkungan.png" alt="IoT Monitoring Lingkungan" />
+          <div class="project-content">
+            <h3>IoT Monitoring Lingkungan</h3>
+            <p>Merupakan sistem yang memonitoring lingkungan di perpustakaan IPB University dengan indikator suhu, kelembapan, dan CO2 menggunakan komunikasi MQTT. Sistem ini berfungsi menjaga kenyamanan pengunjung dan staf.</p>
           </div>
-          <div class="col-md-4 mb-3" data-aos="zoom-in">
-            <div class="card h-100">
-              <img src="img/project/more.png" style="max-height: 200px; height: 100%" class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">Website More MUM</h5>
-                <p class="card-text">Pembuatan Website Lowongan kerja di PT PNM Group yang merupakan website milik PT Mitra Utama Madani.</p>
-              </div>
-            </div>
+          <div class="project-links">
+            <a href="https://github.com/onlyramdan/Project-api-IoT" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://perpus-iot.my.id" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
           </div>
-          <div class="col-md-4 mb-3" data-aos="zoom-in">
-            <div class="card h-100">
-              <img src="img/project/legalin.png" style="max-height: 200px; height: 100%" class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">Website LegalinAja</h5>
-                <p class="card-text">Pembuatan Website tentang panduan pentingnya pendaftaran legalisasi UMKM dan pelatihan pengembangan UMKM.</p>
-              </div>
-            </div>
+        </div>
+        <div class="project-item" data-aos="zoom-in">
+          <img src="img/project/more.png" alt="Website More MUM" />
+          <div class="project-content">
+            <h3>Website More MUM</h3>
+            <p>Pembuatan Website Lowongan kerja di PT PNM Group yang merupakan website milik PT Mitra Utama Madani.</p>
           </div>
-          <div class="col-md-4 mb-3" data-aos="zoom-in">
-            <div class="card h-100">
-              <img src="img/project/pakan-puyuh.png" style="max-height: 200px; height: 100%" class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">Pakan Otomatis di Tazkia Farm</h5>
-                <p class="card-text">
-                  Project ini bertujuan membuat sebuah pakan otomatis untuk burung puyuh penghasil telur agar sesuai dengan takarannya. Dalam project ini menggunakan mikrokontroler arduino dan sensor loadcell hx711 untuk mengatur berat
-                  pakan yang akan dikeluarkan.
-                </p>
-              </div>
-            </div>
+          <div class="project-links">
+            <a href="https://github.com/yourusername/more-mum" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://more.mum.co.id" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
           </div>
-          <div class="col-md-4 mb-3" data-aos="zoom-in">
-            <div class="card h-100">
-              <img src="img/project/iot-afish.png" style="max-height: 200px; height: 100%" class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">IoT aFEESH</h5>
-                <p class="card-text">
-                  Project ini membuat sebuah pakan otomatis dengan menggunakan sistem serta berbasis Web dimana pakan akan keluar otomatis ketika pakan waktunya sudah tepat sama seperti yang di setting di pada website dan juga berdasarkan
-                  kualitas air kolam lele.
-                </p>
-              </div>
-            </div>
+        </div>
+        <div class="project-item" data-aos="zoom-in">
+          <img src="img/project/legalin.png" alt="Website LegalinAja" />
+          <div class="project-content">
+            <h3>Website LegalinAja</h3>
+            <p>Pembuatan Website tentang panduan pentingnya pendaftaran legalisasi UMKM dan pelatihan pengembangan UMKM.</p>
           </div>
-          <div class="col-md-4 mb-3" data-aos="zoom-in">
-            <div class="card h-100">
-              <img src="img/project/ulam.jpeg" style="max-height: 200px; height: 100%" class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">Angsuran VA ULLAM</h5>
-                <p class="card-text">
-                  Merupakan Website untuk memonitoring pembayaran via alfamart dan indomart dari nasabah ULLAM baik dari MMS maupun channel dari Jatelindo dimana monitoring ini dapat dilakukan secara perhari, perbulan, dan pertahun.
-                </p>
-              </div>
-            </div>
+          <div class="project-links">
+            <a href="https://github.com/yourusername/legalinaja" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://legalinaja.com" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
           </div>
-          <div class="col-md-4 mb-3" data-aos="zoom-in">
-            <div class="card h-100">
-              <img src="img/project/WhatsApp Image 2022-02-05 at 00.57.22.jpeg" style="max-height: 200px; height: 100%" class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">Youth Planner</h5>
-                <p class="card-text">
-                  Acara youth planner ini di adakan oleh SCH (Sukabumi Creative Hub). Dalam acara ini saya dan tim mendapatkan pelatihan tentang dunia startup dan pembuatan aplikasi. Saya dan tim membuat presentasi pitchdeck tentang
-                  aplikasi untuk inovasi di Sukabumi yang di presentasikan langsung di depan Wali Kota Sukabumi.
-                </p>
-              </div>
-            </div>
+        </div>
+        <div class="project-item" data-aos="zoom-in">
+          <img src="img/project/pakan-puyuh.png" alt="Pakan Otomatis di Tazkia Farm" />
+          <div class="project-content">
+            <h3>Pakan Otomatis di Tazkia Farm</h3>
+            <p>
+              Project ini bertujuan membuat sebuah pakan otomatis untuk burung puyuh penghasil telur agar sesuai dengan takarannya. Dalam project ini menggunakan mikrokontroler arduino dan sensor loadcell hx711 untuk mengatur berat pakan
+              yang akan dikeluarkan.
+            </p>
           </div>
-          <div class="col-md-4 mb-3" data-aos="zoom-in">
-            <div class="card h-100">
-              <img src="img/project/6f70cb63-36f4-4c6e-b6f2-db5a7e25f2d0.jpg" style="max-height: 200px; height: 100%" class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">IT Fest 2021</h5>
-                <p class="card-text">IT Fest 2021 (IT Festival 2021) adalah acara yang diselenggarakan oleh himavo Micro IT Sekolah Vokasi. Saya dalam event ini berperan dalam desain feed instagram pada event ini.</p>
-              </div>
-            </div>
+          <div class="project-links">
+            <a href="https://github.com/yourusername/pakan-puyuh" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://pakan-puyuh.com" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
           </div>
-          <div class="col-md-4 mb-3" data-aos="zoom-in">
-            <div class="card h-100">
-              <img src="img/project/WhatsApp Image 2022-02-05 at 01.07.23.jpeg" style="max-height: 200px; height: 100%" class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">Sobat Bumi UGM 2021</h5>
-                <p class="card-text">
-                  Sobat Bumi ini adalah acara yang diadakan oleh Universitas Gajah Mada dimana untuk memberikan sosialisasi tentang pengelolaan sampah dan kebersihan lingkungan. Dalam acara ini saya berperan sebagai desainer feeds instagram
-                  dari sobat bumi.
-                </p>
-              </div>
-            </div>
+        </div>
+        <div class="project-item" data-aos="zoom-in">
+          <img src="img/project/iot-afish.png" alt="IoT aFEESH" />
+          <div class="project-content">
+            <h3>IoT aFEESH</h3>
+            <p>
+              Project ini membuat sebuah pakan otomatis dengan menggunakan sistem serta berbasis Web dimana pakan akan keluar otomatis ketika pakan waktunya sudah tepat sama seperti yang di setting di pada website dan juga berdasarkan
+              kualitas air kolam lele.
+            </p>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/yourusername/iot-afish" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://iot-afish.com" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+          </div>
+        </div>
+        <div class="project-item" data-aos="zoom-in">
+          <img src="img/project/ulam.jpeg" alt="Angsuran VA ULLAM" />
+          <div class="project-content">
+            <h3>Angsuran VA ULLAM</h3>
+            <p>Merupakan Website untuk memonitoring pembayaran via alfamart dan indomart dari nasabah ULLAM baik dari MMS maupun channel dari Jatelindo dimana monitoring ini dapat dilakukan secara perhari, perbulan, dan pertahun.</p>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/yourusername/angsur-va-ullam" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://angsur-va-ullam.com" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+          </div>
+        </div>
+        <div class="project-item" data-aos="zoom-in">
+          <img src="img/project/WhatsApp Image 2022-02-05 at 00.57.22.jpeg" alt="Youth Planner" />
+          <div class="project-content">
+            <h3>Youth Planner</h3>
+            <p>
+              Acara youth planner ini di adakan oleh SCH (Sukabumi Creative Hub). Dalam acara ini saya dan tim mendapatkan pelatihan tentang dunia startup dan pembuatan aplikasi. Saya dan tim membuat presentasi pitchdeck tentang aplikasi
+              untuk inovasi di Sukabumi yang di presentasikan langsung di depan Wali Kota Sukabumi.
+            </p>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/yourusername/youth-planner" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://youth-planner.com" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+          </div>
+        </div>
+        <div class="project-item" data-aos="zoom-in">
+          <img src="img/project/6f70cb63-36f4-4c6e-b6f2-db5a7e25f2d0.jpg" alt="IT Fest 2021" />
+          <div class="project-content">
+            <h3>IT Fest 2021</h3>
+            <p>IT Fest 2021 (IT Festival 2021) adalah acara yang diselenggarakan oleh himavo Micro IT Sekolah Vokasi. Saya dalam event ini berperan dalam desain feed instagram pada event ini.</p>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/yourusername/it-fest-2021" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://it-fest-2021.com" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+          </div>
+        </div>
+        <div class="project-item" data-aos="zoom-in">
+          <img src="img/project/WhatsApp Image 2022-02-05 at 01.07.23.jpeg" alt="Sobat Bumi UGM 2021" />
+          <div class="project-content">
+            <h3>Sobat Bumi UGM 2021</h3>
+            <p>
+              Sobat Bumi ini adalah acara yang diadakan oleh Himpunan Mahasiswa Teknik Geologi UGM. Dalam acara ini, saya berperan dalam desain dan pengembangan website untuk mendukung penyelenggaraan acara, termasuk pendaftaran peserta dan
+              pengumuman hasil kegiatan.
+            </p>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/yourusername/sobat-bumi-ugm" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://sobat-bumi-ugm.com" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
           </div>
         </div>
       </div>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-        <path
-          fill="#fff"
-          fill-opacity="1"
-          d="M0,192L48,192C96,192,192,192,288,170.7C384,149,480,107,576,112C672,117,768,171,864,170.7C960,171,1056,117,1152,128C1248,139,1344,213,1392,250.7L1440,288L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-        ></path>
-      </svg>
     </section>
-    <!-- Akhir Project -->
-    <!-- Contact -->
-    <!-- Footer -->
-    <footer class="bg-white text-dark text-center pb-3">
-      <p>Created with <i class="bi bi-heart-fill text-danger"></i> by <a href="" class="text-dark fw-bold">Ramdan</a></p>
+
+    <section id="contact" class="contact" data-aos="fade-up">
+      <h2>Contact</h2>
+      <p>If you'd like to get in touch, please fill out the form below:</p>
+      <form id="contact-form" class="contact-form" action="https://formspree.io/f/mzzpdryy" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+    <!-- Footer Section -->
+    <!-- Footer Section -->
+    <footer class="footer">
+      <div class="footer-content">
+        <h3>Connect with me</h3>
+        <div class="social-links">
+          <a href="https://github.com/onlyramdan" target="_blank" title="GitHub">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/github.svg" alt="GitHub" style="filter: invert(1); width: 24px; height: 24px" />
+          </a>
+          <a href="https://www.linkedin.com/in/onlyramdan" target="_blank" title="LinkedIn">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/linkedin.svg" alt="LinkedIn" style="filter: invert(1); width: 24px; height: 24px" />
+          </a>
+          <a href="https://medium.com/@onlyramdanbelajar" target="_blank" title="Medium">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/medium.svg" alt="Medium" style="filter: invert(1); width: 24px; height: 24px" />
+          </a>
+        </div>
+      </div>
     </footer>
-    <!-- Akhir Footer -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
       AOS.init();
+    </script>
+    <script>
+      var form = document.getElementById("contact-form");
+
+      async function handleSubmit(event) {
+        event.preventDefault();
+        var data = new FormData(event.target);
+        fetch(event.target.action, {
+          method: form.method,
+          body: data,
+          headers: {
+            Accept: "application/json",
+          },
+        })
+          .then((response) => {
+            if (response.ok) {
+              Swal.fire({
+                icon: "success",
+                title: "Success!",
+                text: "Thanks for your message!",
+              });
+              form.reset();
+            } else {
+              response.json().then((data) => {
+                let errorMessage = "Oops! There was a problem submitting your form";
+                if (data.errors) {
+                  errorMessage = data.errors.map((error) => error.message).join(", ");
+                }
+                Swal.fire({
+                  icon: "error",
+                  title: "Error!",
+                  text: errorMessage,
+                });
+              });
+            }
+          })
+          .catch((error) => {
+            Swal.fire({
+              icon: "error",
+              title: "Error!",
+              text: "Oops! There was a problem submitting your form",
+            });
+          });
+      }
+
+      form.addEventListener("submit", handleSubmit);
+    </script>
+
+    <script>
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+      });
     </script>
   </body>
 </html>
